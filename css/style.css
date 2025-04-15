@@ -29,21 +29,6 @@ body {
 	
 }
 
-header{	
-	text-align:left;	
-}
-
-figure{
-	text-align: center;
-	align-items: center;
-}
-
-.student1.hover{
-
-	outline: solid-black;
-	
-}
-
 
 /* ========================================
 MEDIA QUERIES!
