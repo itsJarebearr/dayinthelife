@@ -20,6 +20,8 @@ body {
 }
 
 
+
+
 #container {
 	
 	
@@ -27,14 +29,21 @@ body {
 	
 }
 
+header{	
+	text-align:left;	
+}
+
 figure{
 	text-align: center;
 	align-items: center;
 }
 
-header{	
-	text-align:left;	
+.student1.hover{
+
+	outline: solid-black;
+	
 }
+
 
 /* ========================================
 MEDIA QUERIES!
