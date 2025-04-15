@@ -1,0 +1,84 @@
+/* Basic CSS resets -- leveling slight inconsistencies in browsers */
+html, body {
+	margin:0px;
+	padding:0px;
+	height:100%;
+}
+
+html {
+		/* Standard text-settings below */
+	font-size: 1em;
+    line-height: 1.4em;
+}
+
+
+
+
+body {
+	
+	
+}
+
+
+#container {
+	
+	
+	
+	
+}
+
+figure{
+	text-align: center;
+	align-items: center;
+}
+
+header{	
+	text-align:left;	
+}
+
+/* ========================================
+MEDIA QUERIES!
+You can adjust the min-width numbers below, and add as many new media queries as you need.
+======================================== */
+
+
+/* Minimum width for laptops. */
+@media all and (min-width: 769px) {
+	
+/* flex parent */
+/*main {
+	display: flex;
+}*/
+
+/*flex items*/
+figure {
+	flex: 1 1 50%;
+}
+
+
+	
+} /* closes 769px+ */
+
+
+
+
+/* Minimum width for desktop screens. */
+@media all and (min-width: 1024px) {
+    
+    main{
+        display:flex;
+    }
+	
+figure {
+	flex-basis: 30%;
+}
+
+
+	
+} /* closes 1024px+ */
+
+
+
+
+
+
