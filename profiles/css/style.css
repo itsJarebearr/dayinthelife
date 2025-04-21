@@ -15,62 +15,94 @@ html {
 
 
 body {
-    
-    background: #efefef;
-    color: #fff;
-	
-	
+    background: #048194;
+    opacity: 0;
+    animation: fadeIn 1000ms ease forwards;
 }
 
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 
 #container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;    /* Center items horizontally */
-    justify-content: center; /* Center items vertically (optional) */
-    text-align: center;     /* Center text inside elements */
-    height: 100vh;          /* Full viewport height if you want full center */
-    background-color: rgba(0,0,0,0.4);
+    padding: 1em;
+			
+}
+
+header, h1{
+    color: white;
+    text-align: center;
+}
+
+img{
+    width:100%;
+    height: auto;
+    display:block;
 }
 
 
-h1{
-    font-size: 100px;
+#student1, #student2, #student3{
+    max-width: 400px;
+    margin: 0em auto;
+    padding: 1em;
+    border-radius: 10px;
+    background: #efefef;
+    border-radius: 20px;
+    margin-bottom: 2em;
+    transition: background 400ms;
+    
 }
 
-h2{
-    font-family: cursive;
-}
-
-nav ul{
-    list-style: none;
-}
-
-nav a{
-    text-decoration: none;
+button.revealVideoBtn {
     background: #000;
     color: white;
-    padding: 10px 80px;
+    padding: 0.5em 1em;
+    border: none;
     border-radius: 5px;
-    transition: background 300ms ease;
-    font-size: 24px;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background 400ms;
 }
 
-nav a:hover {
+button.revealVideoBtn:hover {
     background: #048194;
 }
 
-.background-clip{
+.video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      transform: scale(1.18); /* Slightly bigger */
+      transform-origin: center;
+      max-width: 100%;
+      margin: 1em auto;
+}
+
+.video-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the video covers the entire container */
-    z-index: -1; /* Keeps the video behind your content */
+}
 
+.video-wrapper {
+  margin-top: 1em;
+  text-align: center;
+}
+
+
+figure{
+	text-align: center;
+	align-items: center;
+}
+
+header{	
+	text-align:left;	
 }
 
 /* ========================================
@@ -104,6 +136,7 @@ figure {
     
     main{
         display:flex;
+        gap: 0.5em;
     }
 	
 figure {
