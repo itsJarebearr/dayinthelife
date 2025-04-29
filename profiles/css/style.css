@@ -172,7 +172,8 @@ You can adjust the min-width numbers below, and add as many new media queries as
         max-height: 200px; 
         margin-bottom: 1em;
         text-align: center;
-	background: #efefef;
+	background: #ECFAFE;
+	padding: 0.5em;
     }
     
     figure {
