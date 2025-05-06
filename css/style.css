@@ -1,104 +1,238 @@
-/* Basic CSS resets -- leveling slight inconsistencies in browsers */
+/* Basic resets */
 html, body {
-	margin:0px;
-	padding:0px;
-	height:100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 html {
-		/* Standard text-settings below */
-	font-size: 1em;
+    font-size: 1em;
     line-height: 1.4em;
 }
 
-.libre-franklin-<uniquifier> {
-  font-family: "Libre Franklin", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-
-
 body {
-    
-    background: #efefef;
-    color: #fff;
-	
-	
-}
-
-
-
-
-#container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;
-    justify-content: center;
-    text-align: center;     /* Center text inside elements */
-    height: 100vh;          /* Full viewport height */
-    background-color: rgba(0,0,0,0.4);
-}
-
-
-h1{
-    font-size: 100px;
-    font-family:"Libre Franklin", sans-serif;
-    font-weight: normal;
-}
-
-h2{
-    font-family: "Libre Franklin", cursive, sans-serif;
-    font-size: 24px;
-    font-weight: normal;
-}
-
-nav ul{
-    list-style: none;
-}
-
-nav a{
-    text-decoration: none;
-    background: #000;
-    color: white;
-    padding: 10px 80px;
-    border-radius: 5px;
-    transition: background 300ms ease;
-    font-size: 20px;
+    background: #048194;
+    opacity: 0;
+    animation: fadeIn 1000ms ease forwards;
     font-family: "Libre Franklin", sans-serif;
 }
 
-nav a:hover {
-    background: #048194;
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.background-clip{
+#container {
+    padding: 1em;
+}
+
+/* Typography */
+header, h1 {
+    color: white;
+    text-align: center;
+    font-weight: normal;
+}
+
+h1 {
+    padding: 0.5em;
+}
+
+h1.major {
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0;
+}
+
+h2 {
+    margin: 0.5em 0;
+}
+
+/* Image styling */
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Student card styling */
+#student1, #student2, #student3 {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1em auto;
+    max-width: 500px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Button styling */
+button.revealVideoBtn {
+    background: #00874f;
+    color: white;
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button.revealVideoBtn:hover {
+    background: #00653b;
+    transform: scale(1.05);
+}
+
+/* Video */
+.video-wrapper {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 1em auto;
+    max-width: 100%;
+}
+
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the video covers the entire container */
-    z-index: -1; /* Keeps the video content */
-
 }
 
-/* ========================================
-MEDIA QUERIES!
-You can adjust the min-width numbers below, and add as many new media queries as you need.
-======================================== */
+/* Figure styling */
+figure {
+    text-align: center;
+    margin: 0;
+}
+
+figcaption {
+    margin-top: 1em;
+    background: #ECFAFE;
+    padding: 0.75em;
+    border-radius: 8px;
+}
+
+/* Modal overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content box */
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 1em;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 640px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Close button */
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Reuse existing video-container */
+#modalVideoContainer {
+    padding-bottom: 56.25%;
+    height: 0;
+    position: relative;
+}
+
+#modalVideoContainer iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 60px;
+/* ============================
+   MEDIA QUERIES
+============================= */
+
+/* Laptop (min 769px) */
+@media all and (min-width: 769px) {
+    main {
+        display: flex;
+        justify-content: space-between;
+        gap: 2em;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        padding:20px;
     }
-}
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 36px;
+    #student1, #student2, #student3 {
+        flex: 1;
+        max-width: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding:2em;
     }
+
+    /*.video-container {
+        transform: scale(1.1);
+        transform-origin: center;
+    }*/
+    
+    #modalVideoContainer {
+        width: 100%;
+        max-width:540px;
+        max-height:315px;
+        height: 100%
+        padding: 2em;
+  }
 }
 
 
+/* Desktop (min 1024px) */
+@media all and (min-width: 1024px) {
+    main {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    #student1, #student2, #student3 {
+        flex: 1 1 30%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    figcaption {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    /*.video-container {
+        max-width: 400px;
+        margin: 2em auto;
+        transform: scale(1.1);
+    }*/
+}
