@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	
+	<title>Day in the Life</title>
+	
+	<link rel="stylesheet" href="css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	
+</head>
+
+
+<body>
+	
+ <div id="container">
+	  
+	  <header>
+		  
+		  <h1>Choose your major/student</h1>
+		  
+	  </header>
+      
+<main>
+    
+        <div id="student1">
+            
+                    <h1 class="major">MARKETING</h1>    
+            
+                        <figure>
+                            <img src="img/AshPic.jpg" alt="Student1">
+                            <h2>Ash</h2>
+                            <figcaption>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </figcaption>
+
+                            <button class="revealVideoBtn" data-target="#ashVideo"><b>ASH'S VIDEO</b></button>
+
+                            <!-------<figure id="ashVideo" class="video-wrapper">
+                                <div class="video-container"> 
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/fzgpBcEKynA" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </figure>-------->
+                        </figure>
+                    </div>
+      
+    <div id="student2">
+        
+                    <h1 class="major">PHOTOJOURNALISM</h1>
+      
+                        <figure>
+                            <img src="img/GiannaPic.JPEG" alt="Student2">
+                            <h2>Gianna</h2>
+                            <figcaption>
+                                My name Gianna Velardi, I am 19 years old in my second year at Columbia College Chicago. I am working towards my Bachelor’s degree in photojournalism. I have always loved taking photos and have used the same Canon camera since I was 13. I also have been participating in a k-pop based dance group of Columbia students called C2K Dance since Sept 2023, in which I have performed 15 different dances throughout my time with them, while also photographing members for different concept images for promotion purposes. I hope to one day use my skills to emphasize the work of creative artists and their visions.
+                            </figcaption>
+
+                            <button class="revealVideoBtn" data-target="#giannaVideo"><b>GIANNA'S VIDEO</b></button>
+
+                            <!---<figure id="giannaVideo" class="video-wrapper">
+                                <div class="video-container"> 
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/fzgpBcEKynA" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </figure>--->
+                        </figure>
+                 
+            </div>
+      
+      <div id="student3">
+          
+                    <h1 class="major">GRAPHIC DESIGN</h1>
+      
+                       <figure>
+                            <img src="img/JoyPic2.jpg" alt="Student2">
+                            <h2>Joy</h2>
+                            <figcaption>
+                                Joy is currently studying Graphic Design with a minor in UX design in columbia college chicago. She enjoys the classes she has been taking in school, and she is taking a couple graphic design classes and some interactive media classes. She met a lot of friends from different majors. She usually starts her day in college with a cup of Dunkin ' right on campus. She goes to classes, visits friends making film projects, hanging out with friends, working in a computer lab.
+                            </figcaption>
+
+                           <button class="revealVideoBtn" data-target="#joyVideo"><b>JOY'S VIDEO</b></button>
+
+                             <!---<figure id="joyVideo" class="video-wrapper">
+                                <div class="video-container"> 
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/KZ2_SJEy23E?si=Ue3usw488IJcwKW7" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </figure>----->
+                        </figure>
+                 
+            </div>
+    
+    
+    </main>
+     
+    </div>
+    
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+            <div class="video-container" id="modalVideoContainer"> <!-- Video iframe will be injected here -->
+            </div>
+        </div>
+    </div>
+
+</body>
+	
+</html> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    const modal = $('#videoModal');
+    const videoContainer = $('#modalVideoContainer');
+
+    const videoMap = {
+      '#ashVideo': 'https://www.youtube.com/embed/fzgpBcEKynA',
+      '#giannaVideo': 'https://www.youtube.com/embed/fzgpBcEKynA',
+      '#joyVideo': 'https://www.youtube.com/embed/KZ2_SJEy23E?si=Ue3usw488IJcwKW7'
+    };
+
+    $('button.revealVideoBtn').on('click', function () {
+      const target = $(this).data('target');
+      const url = videoMap[target];
+
+      videoContainer.html(`<iframe src="${url}" frameborder="0" allowfullscreen></iframe>`);
+      modal.css('display', 'flex');
+    });
+
+    $('.closeBtn').on('click', function () {
+      modal.hide();
+      videoContainer.html(''); // Stop the video
+    });
+
+    // Close when clicking outside modal-content
+    $(window).on('click', function (e) {
+      if ($(e.target).is('#videoModal')) {
+        modal.hide();
+        videoContainer.html('');
+      }
+    });
+  });
+</script>
+
+
