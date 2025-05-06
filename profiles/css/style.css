@@ -174,8 +174,16 @@ figcaption {
 ============================= */
 
 @media all and (max-width: 768px) {
+
+    body{
+        padding: 20px 20px;
+        max-height:100px;
+        
+    }
+    
     main {
         display: block;
+        height: 100vh;
     }
 
     #student1, #student2, #student3 {
