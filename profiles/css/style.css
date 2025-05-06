@@ -235,3 +235,13 @@ figcaption {
         transform: scale(1.1);
     }*/
 }
+
+/*Desktop 1440p*/
+
+@media all and (min-width: 1440px){
+
+       figcaption {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    
