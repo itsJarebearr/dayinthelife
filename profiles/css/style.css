@@ -1,24 +1,14 @@
-/* Basic CSS resets -- leveling slight inconsistencies in browsers */
+/* Basic resets */
 html, body {
-	margin:0px;
-	padding:0px;
-	height:100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 html {
-		/* Standard text-settings below */
-	font-size: 1em;
+    font-size: 1em;
     line-height: 1.4em;
 }
-
-
-.libre-franklin-<uniquifier> {
-  font-family: "Libre Franklin", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-
 
 body {
     background: #048194;
@@ -27,167 +17,222 @@ body {
     font-family: "Libre Franklin", sans-serif;
 }
 
-
+/* Fade-in animation */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-
 #container {
     padding: 1em;
-			
 }
 
-header, h1{
+/* Typography */
+header, h1 {
     color: white;
     text-align: center;
     font-weight: normal;
 }
 
-h1{ /*header padding*/
+h1 {
     padding: 0.5em;
 }
 
-h1.major{
+h1.major {
     color: black;
-    font-size: 26px;
+    font-size: 1.5em;
     font-weight: bold;
     padding: 0;
 }
 
+h2 {
+    margin: 0.5em 0;
+}
 
-img{
-    width:100%;
+/* Image styling */
+img {
+    width: 100%;
     height: auto;
-    display:block;
+    display: block;
+    border-radius: 8px;
 }
 
-
-#student1, #student2, #student3{
-    max-width: 400px;
-    margin: 0em auto;
-    padding: 1em;
-    border-radius: 10px;
+/* Student card styling */
+#student1, #student2, #student3 {
     background: #ffffff;
-    border-radius: 20px;
-    margin-bottom: 2em;
-    padding-bottom: 2em;
-    
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1em auto;
+    max-width: 500px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* Button styling */
 button.revealVideoBtn {
-    background: #000;
+    background: #00874f;
     color: white;
-    padding: 1em 2em; /* ★ Bigger padding: more inside space */
-    font-size: 1.1em; /* ★ Slightly larger text */
+    padding: 0.75em 1.5em;
+    font-size: 1em;
     border: none;
-    border-radius: 10px; 
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 1em;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 button.revealVideoBtn:hover {
-    background: #048194;
+    background: #00653b;
+    transform: scale(1.05);
+}
+
+/* Video */
+.video-wrapper {
+    margin-top: 2em;
+    text-align: center;
 }
 
 .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      transform: scale(1.5); /* Slightly bigger */
-      transform-origin: center;
-      max-width: 100%;
-      margin: 2em auto;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 1em auto;
+    max-width: 100%;
 }
 
 .video-container iframe {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
 
-.video-wrapper {
-  margin-top: 3em;
-  text-align: center;
+/* Figure styling */
+figure {
+    text-align: center;
+    margin: 0;
+}
+
+figcaption {
+    margin-top: 1em;
+    background: #ECFAFE;
+    padding: 0.75em;
+    border-radius: 8px;
+}
+
+/* Modal overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content box */
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 1em;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 640px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Close button */
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Reuse existing video-container */
+#modalVideoContainer {
+    padding-bottom: 56.25%;
+    height: 0;
+    position: relative;
+}
+
+#modalVideoContainer iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 
-figure{
-	text-align: center;
-	align-items: center;
-}
+/* ============================
+   MEDIA QUERIES
+============================= */
 
-header{	
-	text-align:left;	
-}
-
-/* ========================================
-MEDIA QUERIES!
-You can adjust the min-width numbers below, and add as many new media queries as you need.
-======================================== */
-
-
-/* Minimum width for laptops. */
+/* Laptop (min 769px) */
 @media all and (min-width: 769px) {
-    
-    .videoContainer{
-        padding-bottom: 3em;
-    }
-	
-    button.revealVideoBtn {
-        margin-top: 1em; /* normal spacing on small screens */
-      }
-    
-    figure {
-        flex: 1 1 50%;
-    }
-	
-} /* closes 769px+ */
-
-
-
-/* Minimum width for desktop screens. */
-@media all and (min-width: 1024px) {
-    
     main {
         display: flex;
-        gap: 0.5em;
-        align-items: stretch; 
+        justify-content: space-between;
+        gap: 2em;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        padding:20px;
     }
 
     #student1, #student2, #student3 {
         flex: 1;
+        max-width: none;
         display: flex;
         flex-direction: column;
-        justify-content: space-between; /* Make inside content spaced better */
+        justify-content: space-between;
+        padding:2em;
+    }
+
+    /*.video-container {
+        transform: scale(1.1);
+        transform-origin: center;
+    }*/
+    
+    #modalVideoContainer {
+        width: 100%;
+        max-width:540px;
+        max-height:315px;
+        height: 100%
+        padding: 2em;
+  }
+}
+
+
+/* Desktop (min 1024px) */
+@media all and (min-width: 1024px) {
+    main {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    #student1, #student2, #student3 {
+        flex: 1 1 30%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     figcaption {
-        flex-grow: 1; /*Allow figcaption to take available space */
-        overflow-y: auto; /* If too much text, allow vertical scroll */
-        max-height: 200px; 
-        margin-bottom: 1em;
-        text-align: center;
-	background: #ECFAFE;
-	padding: 0.5em;
+        max-height: 200px;
+        overflow-y: auto;
     }
-    
-    figure {
-        flex-basis: 30%;
-    }
-    
-    button.revealVideoBtn {
-    margin-top: auto;
-    }
-	
-} /* closes 1024px+ */
 
-
-
-
-
-
+    /*.video-container {
+        max-width: 400px;
+        margin: 2em auto;
+        transform: scale(1.1);
+    }*/
+}
